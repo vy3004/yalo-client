@@ -1,0 +1,14 @@
+.chat-view-message {
+  height: 84vh;
+  max-height: 100%;
+  background-color: #eeeff2;
+  overflow-y: auto;
+}
+.m-msg {
+  float: right;
+  clear: both;
+}
+.msg {
+  float: left;
+  clear: both;
+}

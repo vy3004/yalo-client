@@ -1,0 +1,14 @@
+.chatlist {
+  background-color: #fefefe;
+  height: 92vh;
+  overflow: auto;
+}
+.tabs {
+  padding-left: 1em;
+}
+.list-item1:hover {
+  background-color: #eeeff2;
+}
+.list-item2:hover {
+  background-color: #eeeff2;
+}
