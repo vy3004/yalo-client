@@ -1,5 +1,4 @@
-import React, { useRef, useState } from "react";
-import { useDetectOutsideClick } from "../components/MainTab/useDetectOutsideClick";
+import React, { useState } from "react";
 
 export const AppContext = React.createContext();
 
@@ -10,8 +9,8 @@ export default function AppProvider({ children }) {
   const [isAddUserModalOpen, setIsAddUserModalOpen] = useState(false);
   const [isAddGroupModalOpen, setIsAddGroupModalOpen] = useState(false);
 
-  const dropdownRef = useRef(null);
-  const [isActive, setIsActive] = useDetectOutsideClick(dropdownRef, false);
+  // const dropdownRef = useRef(null);
+  // const [isActive, setIsActive] = useDetectOutsideClick(dropdownRef, false);
 
   const clearState = () => {
     setIsInfoUserModalOpen(false);
@@ -31,8 +30,8 @@ export default function AppProvider({ children }) {
         setIsAddUserModalOpen,
         isAddGroupModalOpen,
         setIsAddGroupModalOpen,
-        isActive,
-        setIsActive,
+        // isActive,
+        // setIsActive,
         clearState,
       }}
     >

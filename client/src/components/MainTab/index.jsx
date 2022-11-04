@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import { Avatar, Button } from "antd";
 import {
   MessageOutlined,
@@ -7,17 +7,18 @@ import {
 } from "@ant-design/icons";
 import "./style.css";
 import { AppContext } from "../../context/AppProvider";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import useOutsideClick from "../../hooks/useOutsideClick";
 
 export default function MainTab() {
   const { setIsInfoUserModalOpen } = React.useContext(AppContext);
-  const dropdownRef = useRef(null);
-  const [isActive, setIsActive] = useState(false);
   const navigate = useNavigate();
+
+  const { isActive, setIsActive, ref } = useOutsideClick(false);
 
   const handleOpenInfoUser = () => {
     setIsInfoUserModalOpen(true);
+    setIsActive(!isActive);
   };
 
   const handleOpenMenuUser = () => {
@@ -45,10 +46,7 @@ export default function MainTab() {
             {user.photoURL ? "" : user.displayName?.charAt(0)?.toUpperCase()}
           </Avatar>
         </Button>
-        <nav
-          ref={dropdownRef}
-          className={`menu ${isActive ? "active" : "inactive"}`}
-        >
+        <nav ref={ref} className={`menu ${isActive ? "active" : "inactive"}`}>
           <ul>
             <li className="menu-header">
               <span>{user.displayName}</span>
