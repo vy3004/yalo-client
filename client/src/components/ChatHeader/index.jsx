@@ -8,10 +8,10 @@ export default function ChatHeader() {
   return (
     <div className="chat-header">
       <Row>
-        <Col span={16}>
+        <Col flex={3}>
           <ChatHeaderInfo />
         </Col>
-        <Col span={8}>
+        <Col flex={2}>
           <ChatHeaderBtn />
         </Col>
       </Row>

@@ -1,6 +1,6 @@
 import React from "react";
 import { Col, Row } from "antd";
-import Menu from "../Menu";
+import MainTab from "../MainTab";
 import "./style.css";
 import Navbar from "../Navbar";
 
@@ -9,7 +9,7 @@ export default function Sidebar() {
     <div className="sidebar">
       <Row>
         <Col span={4}>
-          <Menu />
+          <MainTab />
         </Col>
         <Col span={20}>
           <Navbar />

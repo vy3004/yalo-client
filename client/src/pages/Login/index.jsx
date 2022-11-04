@@ -6,7 +6,7 @@ import "react-phone-input-2/lib/style.css";
 import QRCode from "qrcode.react";
 import { Link, useNavigate } from "react-router-dom";
 import "./style.css";
-import AuthOtp from "../AuthOtp";
+import AuthOtp from "../../components/AuthOtp";
 
 export default function Login() {
   const [checkOtp, setCheckOtp] = useState(true);

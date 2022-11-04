@@ -4,7 +4,7 @@ import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import "react-phone-input-2/lib/style.css";
 import { Link } from "react-router-dom";
 import "./style.css";
-import AuthOtp from "../AuthOtp";
+import AuthOtp from "../../components/AuthOtp";
 
 export default function Register() {
   const [checkOtp, setCheckOtp] = useState(true);

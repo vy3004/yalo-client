@@ -6,10 +6,10 @@ import ChatWindow from "../../components/ChatWindow";
 export default function ChatRoom() {
   return (
     <Row>
-      <Col flex={"420px"}>
+      <Col flex="0.2 230px">
         <Sidebar />
       </Col>
-      <Col flex="auto">
+      <Col flex="0.8">
         <ChatWindow />
       </Col>
     </Row>

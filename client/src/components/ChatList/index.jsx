@@ -1,6 +1,7 @@
 import React from "react";
 import { Tabs, Avatar, List } from "antd";
 import "./style.css";
+import ChatListItem from "../ChatListItem";
 
 export default function ChatList() {
   const data = [
@@ -62,9 +63,16 @@ export default function ChatList() {
     },
   ];
 
+  const items = [
+    { label: "Tất cả", key: "1", children: <ChatListItem /> }, // remember to pass the key prop
+    { label: "Chưa đọc", key: "2", children: <ChatListItem /> },
+  ];
+
   return (
     <div className="chatlist">
-      <Tabs defaultActiveKey="1" className="tabs">
+      <Tabs defaultActiveKey="1" className="tabs" items={items} />
+
+      {/* <Tabs defaultActiveKey="1" className="tabs">
         <Tabs.TabPane tab="Tất cả" key="1">
           <List
             className="list1"
@@ -97,7 +105,7 @@ export default function ChatList() {
             )}
           />
         </Tabs.TabPane>
-      </Tabs>
+      </Tabs> */}
     </div>
   );
 }

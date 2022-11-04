@@ -1,4 +1,3 @@
-import { BackTop } from "antd";
 import React from "react";
 import Message from "../Message";
 import "./style.css";
@@ -111,10 +110,5 @@ export default function ChatViewMessage() {
     </div>
   ));
 
-  return (
-    <div className="chat-view-message">
-      {renderMess}
-      <BackTop>UP</BackTop>
-    </div>
-  );
+  return <div className="chat-view-message">{renderMess}</div>;
 }

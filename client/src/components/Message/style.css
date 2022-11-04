@@ -12,6 +12,7 @@
   padding: 10px;
 }
 .msg {
+  margin-left: 8px;
   margin-bottom: 10px;
   display: flex;
 }

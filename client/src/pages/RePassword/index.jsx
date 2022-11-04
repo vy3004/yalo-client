@@ -4,7 +4,7 @@ import { LockOutlined } from "@ant-design/icons";
 import "react-phone-input-2/lib/style.css";
 import { Link } from "react-router-dom";
 import "./style.css";
-import AuthOtp from "../AuthOtp";
+import AuthOtp from "../../components/AuthOtp";
 
 export default function RePassword() {
   // const [checkOtp, setCheckOtp] = useState(false);
