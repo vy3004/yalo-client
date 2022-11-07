@@ -34,12 +34,14 @@ export default function Search() {
       <div className="search-btn">
         <Button
           type="text"
+          title="Thêm bạn"
           icon={<UserAddOutlined />}
           className="btn-add-user-group"
           onClick={handleAddUser}
         ></Button>
         <Button
           type="text"
+          title="Tạo nhóm chat"
           icon={<UsergroupAddOutlined />}
           className="btn-add-user-group"
           onClick={handleAddGroup}

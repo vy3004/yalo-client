@@ -8,15 +8,14 @@ export default function AppProvider({ children }) {
     useState(false);
   const [isAddUserModalOpen, setIsAddUserModalOpen] = useState(false);
   const [isAddGroupModalOpen, setIsAddGroupModalOpen] = useState(false);
-
-  // const dropdownRef = useRef(null);
-  // const [isActive, setIsActive] = useDetectOutsideClick(dropdownRef, false);
+  const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
 
   const clearState = () => {
     setIsInfoUserModalOpen(false);
     setIsUpdateInfoUserModalOpen(false);
     setIsAddUserModalOpen(false);
     setIsAddGroupModalOpen(false);
+    setIsLogoutModalOpen(false);
   };
 
   return (
@@ -30,8 +29,8 @@ export default function AppProvider({ children }) {
         setIsAddUserModalOpen,
         isAddGroupModalOpen,
         setIsAddGroupModalOpen,
-        // isActive,
-        // setIsActive,
+        isLogoutModalOpen,
+        setIsLogoutModalOpen,
         clearState,
       }}
     >

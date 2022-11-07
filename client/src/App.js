@@ -9,6 +9,7 @@ import InfoUserModal from "./components/Modals/InfoUserModal";
 import UpdateInfoUserModal from "./components/Modals/UpdateInfoUserModal";
 import AddUserModal from "./components/Modals/AddUserModal";
 import AddGroupModal from "./components/Modals/AddGroupModal";
+import LogoutModal from "./components/Modals/LogoutModal";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route element={<RePassword />} path="/repassword" />
           <Route element={<ChatRoom />} path="/" />
         </Routes>
+        <LogoutModal />
         <InfoUserModal />
         <UpdateInfoUserModal />
         <AddUserModal />

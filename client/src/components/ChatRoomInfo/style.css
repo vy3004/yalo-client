@@ -1,0 +1,17 @@
+.chat-room-info {
+  background-color: #fefefe;
+  height: 100vh;
+}
+
+.chat-room-info-header {
+  /* background-color: rgb(255, 204, 0); */
+  height: 8vh;
+  border-bottom: 1px #f4f5f7 solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.chat-room-info-header span {
+  /* background-color: rgb(255, 204, 0); */
+  font-weight: bold;
+}

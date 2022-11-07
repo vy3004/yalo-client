@@ -1,15 +1,20 @@
 .message-author {
   font-weight: bold;
 }
+.message-text {
+  word-break: break-word;
+}
 .message-date {
   font-size: 10px;
   color: #a7a7a7;
 }
 .content {
   background-color: #ffffff;
+  max-width: 70%;
   border-radius: 8px;
   margin: 0 8px;
   padding: 10px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
 }
 .msg {
   margin-left: 8px;
@@ -21,4 +26,7 @@
   margin-bottom: 10px;
   display: flex;
   flex-direction: row-reverse;
+}
+.m-msg .content {
+  background-color: #e5efff;
 }

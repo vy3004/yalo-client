@@ -36,7 +36,10 @@ export default function Message({
           {photoURL ? "" : displayName?.charAt(0)?.toUpperCase()}
         </Avatar>
         <div className="content">
-          <Typography.Text className="message-author">
+          <Typography.Text
+            className="message-author"
+            style={{ display: user.uid === mesUid ? "none" : "" }}
+          >
             {displayName}
           </Typography.Text>
           <br />
