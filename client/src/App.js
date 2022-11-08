@@ -10,6 +10,11 @@ import UpdateInfoUserModal from "./components/Modals/UpdateInfoUserModal";
 import AddUserModal from "./components/Modals/AddUserModal";
 import AddGroupModal from "./components/Modals/AddGroupModal";
 import LogoutModal from "./components/Modals/LogoutModal";
+import LogoutChatRoomModal from "./components/Modals/LogoutChatRoomModal";
+import DeleteChatHistoryModal from "./components/Modals/DeleteChatHistoryModal";
+import AddMemberModal from "./components/Modals/AddMemberModal";
+import RenameGroupModal from "./components/Modals/RenameGroupModal";
+import InfoGroupModal from "./components/Modals/InfoGroupModal";
 
 function App() {
   return (
@@ -22,10 +27,15 @@ function App() {
           <Route element={<ChatRoom />} path="/" />
         </Routes>
         <LogoutModal />
+        <LogoutChatRoomModal />
         <InfoUserModal />
+        <InfoGroupModal />
         <UpdateInfoUserModal />
         <AddUserModal />
         <AddGroupModal />
+        <AddMemberModal />
+        <RenameGroupModal />
+        <DeleteChatHistoryModal />
       </AppProvider>
     </Router>
   );

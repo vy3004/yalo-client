@@ -31,6 +31,7 @@ export default function InfoUserModal() {
     <div>
       <Modal
         title="Thông tin tài khoản"
+        centered
         open={isInfoUserModalOpen}
         onCancel={handleCancel}
         footer={null}

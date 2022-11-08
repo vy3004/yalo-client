@@ -2,8 +2,11 @@ import React from "react";
 import { Avatar, Typography, Button } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import "./style.css";
+import { AppContext } from "../../context/AppProvider";
 
 export default function ChatHeaderInfo() {
+  const { setIsInfoGroupModalOpen } = React.useContext(AppContext);
+
   // data test
   const members = [
     {
@@ -48,6 +51,10 @@ export default function ChatHeaderInfo() {
     console.log("Info User");
   };
 
+  const handleInfoGroup = () => {
+    setIsInfoGroupModalOpen(true);
+  };
+
   return (
     <div className="chat-header-info">
       {role ? (
@@ -69,7 +76,11 @@ export default function ChatHeaderInfo() {
         </div>
       ) : (
         <div className="chat-header-info-group">
-          <Button className="info-avatar-group" type="text">
+          <Button
+            className="info-avatar-group"
+            type="text"
+            onClick={handleInfoGroup}
+          >
             <Avatar.Group size="default" maxCount={1}>
               {members.map((member) => (
                 <Avatar src={member.photoURL}>

@@ -1,24 +1,84 @@
 import {
   BellOutlined,
+  DeleteOutlined,
   EditOutlined,
+  ExportOutlined,
   PushpinOutlined,
   SettingOutlined,
   UsergroupAddOutlined,
 } from "@ant-design/icons";
 import { Avatar, Button, Image, Menu } from "antd";
 import React from "react";
+import { AppContext } from "../../context/AppProvider";
 import "./style.css";
 
 export default function ChatRoomInfo() {
+  const {
+    setIsLogoutChatRoomModalOpen,
+    setIsDeleteChatHistoryModalOpen,
+    setIsAddMemberModalOpen,
+    setIsRenameGroupModalOpen,
+    setIsInfoGroupModalOpen,
+  } = React.useContext(AppContext);
+
+  const handleAddMember = () => {
+    setIsAddMemberModalOpen(true);
+  };
+
+  const handleInfoGroup = () => {
+    setIsInfoGroupModalOpen(true);
+  };
+
+  const handleRenameGroup = () => {
+    setIsRenameGroupModalOpen(true);
+  };
+
+  const handleLogoutChatRoom = () => {
+    setIsLogoutChatRoomModalOpen(true);
+  };
+
+  const handleDeleteChatHistory = () => {
+    setIsDeleteChatHistoryModalOpen(true);
+  };
+
   const user = {
     displayName: "Kha Vỹ",
     photoURL: "",
     onlineStatus: "Truy cập 30 phút trước",
   };
 
-  const handleOpenInfo = () => {
-    console.log("Info User");
-  };
+  const members = [
+    {
+      displayName: "Kha Vỹ",
+      photoURL: "",
+      isFriend: 1, // Đã kết bạn
+    },
+    {
+      displayName: "Vỹ",
+      photoURL: "",
+      isFriend: 2, // Chưa kết bạn
+    },
+    {
+      displayName: "Kha",
+      photoURL: "",
+      isFriend: 3, // Đang kết bạn
+    },
+  ];
+
+  const links = [
+    {
+      url: "https://www.google.com/",
+      time: "7/11/2022",
+    },
+    {
+      url: "https://www.facebook.com/",
+      time: "7/11/2022",
+    },
+    {
+      url: "https://www.youtube.com/",
+      time: "7/11/2022",
+    },
+  ];
 
   function getItem(label, key, children) {
     return {
@@ -27,44 +87,49 @@ export default function ChatRoomInfo() {
       label,
     };
   }
+
   const memberItems = [
-    getItem(<span>Thành viên nhóm</span>, "sub1", [
-      getItem(
-        <div>
-          <Avatar>Member 1</Avatar>
-          <span>Member 1</span>
-          <Button>Kết bạn</Button>
-        </div>,
-        "1"
-      ),
-      getItem(
-        <div>
-          <Avatar>Member 2</Avatar>
-          <span>Member 2</span>
-          <Button>Kết bạn</Button>
-        </div>,
-        "2"
-      ),
-      getItem(
-        <div>
-          <Avatar>Member 3</Avatar>
-          <span>Member 3</span>
-          <Button>Kết bạn</Button>
-        </div>,
-        "3"
-      ),
-      getItem(
-        <div>
-          <Avatar>Member 4</Avatar>
-          <span>Member 4</span>
-          <Button>Kết bạn</Button>
-        </div>,
-        "4"
-      ),
-    ]),
+    getItem(
+      <span className="chat-room-info-body-mn">Thành viên nhóm</span>,
+      "sub1",
+      members.map((member, index) =>
+        getItem(
+          <div className="chat-room-info-body-members-lst">
+            <div className="chat-room-info-body-members-member">
+              <Avatar size={37} src={member.photoURL}>
+                {member.photoURL
+                  ? ""
+                  : member.displayName?.charAt(0)?.toUpperCase()}
+              </Avatar>
+              <span
+                style={{
+                  color: "black",
+                  fontSize: "16px",
+                  fontWeight: "bold",
+                  marginLeft: "0.5rem",
+                }}
+              >
+                {member.displayName}
+              </span>
+            </div>
+
+            <div>
+              {member.isFriend === 1 ? (
+                ""
+              ) : member.isFriend === 2 ? (
+                <Button type="text">Kết bạn</Button>
+              ) : (
+                <Button type="text">Đã gửi</Button>
+              )}
+            </div>
+          </div>,
+          index
+        )
+      )
+    ),
   ];
   const imgItems = [
-    getItem(<span>Ảnh</span>, "sub1", [
+    getItem(<span className="chat-room-info-body-mn">Ảnh</span>, "sub1", [
       getItem(
         <Image.PreviewGroup>
           <Image
@@ -83,10 +148,80 @@ export default function ChatRoomInfo() {
 
   const items = [
     {
-      label: "sub menu",
+      label: <span className="chat-room-info-body-mn">Video</span>,
       key: "submenu",
-      children: [{ label: "item 3", key: "submenu-item-1" }],
+      children: [
+        {
+          label: <div style={{ height: "100px" }}>TEST</div>,
+          key: "submenu-item-1",
+        },
+      ],
     },
+  ];
+
+  const fileItems = [
+    getItem(<span className="chat-room-info-body-mn">File</span>, "sub1", [
+      getItem("Option 9", "9"),
+      getItem("Option 10", "10"),
+      getItem("Option 11", "11"),
+      getItem("Option 12", "12"),
+    ]),
+  ];
+
+  const linkItems = [
+    getItem(
+      <span className="chat-room-info-body-mn">Link</span>,
+      "sub1",
+      links.map((link, index) =>
+        getItem(
+          <div className="chat-room-info-body-link">
+            <div className="chat-room-info-body-link-l">
+              <span
+                style={{
+                  color: "black",
+                  fontSize: "16px",
+                  fontWeight: "500",
+                  marginLeft: "0.5rem",
+                }}
+              >
+                {link.url}
+              </span>
+            </div>
+
+            <div>
+              <span>{link.time}</span>
+            </div>
+          </div>,
+          index
+        )
+      )
+    ),
+  ];
+  const settingItems = [
+    getItem(<span className="chat-room-info-body-mn">Thiết lập</span>, "sub1", [
+      getItem(
+        <Button
+          style={{ color: "red", fontSize: "16px" }}
+          type="text"
+          icon={<DeleteOutlined />}
+          onClick={handleDeleteChatHistory}
+        >
+          Xóa lịch sử trò chuyện
+        </Button>,
+        "1"
+      ),
+      getItem(
+        <Button
+          style={{ color: "red", fontSize: "16px" }}
+          type="text"
+          icon={<ExportOutlined />}
+          onClick={handleLogoutChatRoom}
+        >
+          Rời nhóm
+        </Button>,
+        "2"
+      ),
+    ]),
   ];
 
   return (
@@ -95,16 +230,28 @@ export default function ChatRoomInfo() {
         <span>Thông tin nhóm</span>
       </div>
       <div className="chat-room-info-body">
-        <div className="chat-room-info-body-btn">
-          <Button className="info-avatar-user" type="text">
-            <Avatar size="large" src={user.photoURL} onClick={handleOpenInfo}>
-              {user.photoURL ? "" : user.displayName?.charAt(0)?.toUpperCase()}
-            </Avatar>
-          </Button>
-          <span>
-            {user.displayName} <Button type="text" icon={<EditOutlined />} />
-          </span>
-          <div>
+        <div className="chat-room-info-body-btn chat-room-info-body-body">
+          <Button
+            className="chat-room-info-body-btn-avatar"
+            type="text"
+            onClick={handleInfoGroup}
+            icon={
+              <Avatar size={70} src={user.photoURL}>
+                {user.photoURL
+                  ? ""
+                  : user.displayName?.charAt(0)?.toUpperCase()}
+              </Avatar>
+            }
+          ></Button>
+          <div className="chat-room-info-body-btn-name">
+            <span>{user.displayName}</span>
+            <Button
+              type="text"
+              onClick={handleRenameGroup}
+              icon={<EditOutlined />}
+            />
+          </div>
+          <div className="chat-room-info-body-btn-group">
             <div>
               <Button type="text" icon={<BellOutlined />} />
               <span>Tắt thông báo</span>
@@ -114,7 +261,11 @@ export default function ChatRoomInfo() {
               <span>Ghim hội thoại</span>
             </div>
             <div>
-              <Button type="text" icon={<UsergroupAddOutlined />} />
+              <Button
+                type="text"
+                onClick={handleAddMember}
+                icon={<UsergroupAddOutlined />}
+              />
               <span>Thêm thành viên</span>
             </div>
             <div>
@@ -123,24 +274,23 @@ export default function ChatRoomInfo() {
             </div>
           </div>
         </div>
-        <div className="chat-room-info-body-members">
-          <Menu
-            defaultSelectedKeys={["1"]}
-            defaultOpenKeys={["sub1"]}
-            mode="inline"
-            items={memberItems}
-          />
+        <div className="chat-room-info-body-body">
+          <Menu mode="inline" items={memberItems} />
         </div>
-        <div className="chat-room-info-body-img">
-          <Menu
-            defaultSelectedKeys={["1"]}
-            defaultOpenKeys={["sub1"]}
-            mode="inline"
-            items={imgItems}
-          />
+        <div className="chat-room-info-body-body">
+          <Menu mode="inline" items={imgItems} />
         </div>
-        <div className="chat-room-info-body-video">
+        <div className="chat-room-info-body-body">
           <Menu items={items} mode="inline" />
+        </div>
+        <div className="chat-room-info-body-body">
+          <Menu mode="inline" items={fileItems} />
+        </div>
+        <div className="chat-room-info-body-body">
+          <Menu mode="inline" items={linkItems} />
+        </div>
+        <div className="chat-room-info-footer">
+          <Menu mode="inline" items={settingItems} defaultOpenKeys={["sub1"]} />
         </div>
       </div>
     </div>

@@ -4,11 +4,26 @@ import {
   UsergroupAddOutlined,
   SearchOutlined,
   VideoCameraOutlined,
-  BarsOutlined,
 } from "@ant-design/icons";
+import {
+  BsReverseLayoutSidebarReverse,
+  BsReverseLayoutSidebarInsetReverse,
+} from "react-icons/bs";
 import "./style.css";
+import { AppContext } from "../../context/AppProvider";
 
 export default function ChatHeaderBtn() {
+  const { isShowChatRoomInfo, setIsShowChatRoomInfo, setIsAddMemberModalOpen } =
+    React.useContext(AppContext);
+
+  const handleAddMember = () => {
+    setIsAddMemberModalOpen(true);
+  };
+
+  const handleShowChatRoomInfo = () => {
+    setIsShowChatRoomInfo(!isShowChatRoomInfo);
+  };
+
   return (
     <div className="chat-header-btn">
       <Button
@@ -16,6 +31,7 @@ export default function ChatHeaderBtn() {
         title="Thêm bạn vào nhóm"
         type="text"
         icon={<UsergroupAddOutlined />}
+        onClick={handleAddMember}
       />
       <Button
         className="btn-chat-header"
@@ -30,10 +46,17 @@ export default function ChatHeaderBtn() {
         icon={<VideoCameraOutlined />}
       />
       <Button
-        className="btn-chat-header"
+        className="btn-chat-header btn-sidebar"
         title="Thông tin hội thoại"
         type="text"
-        icon={<BarsOutlined />}
+        onClick={handleShowChatRoomInfo}
+        icon={
+          isShowChatRoomInfo ? (
+            <BsReverseLayoutSidebarInsetReverse style={{ color: "#0068ff" }} />
+          ) : (
+            <BsReverseLayoutSidebarReverse style={{ color: "black" }} />
+          )
+        }
       />
     </div>
   );

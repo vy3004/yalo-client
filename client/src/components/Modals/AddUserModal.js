@@ -32,6 +32,7 @@ export default function AddUserModal() {
     <div>
       <Modal
         title="Thêm bạn"
+        centered
         open={isAddUserModalOpen}
         onOk={handleOk}
         onCancel={handleCancel}

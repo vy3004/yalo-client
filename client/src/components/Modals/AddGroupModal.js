@@ -33,6 +33,7 @@ export default function AddGroupModal() {
     <div>
       <Modal
         title="Tạo nhóm"
+        centered
         open={isAddGroupModalOpen}
         onCancel={handleCancel}
         onOk={handleUpdate}

@@ -9,10 +9,19 @@
   border-radius: 4px;
   margin: 0 0.2em;
   border: none;
+  font-size: 1rem;
 }
 .btn-chat-header:hover {
   background-color: #eeeff2;
 }
 .btn-chat-header:focus {
-  background-color: #eeeff2;
+  background-color: #e5efff;
+  color: #0068ff;
+}
+.btn-chat-header span {
+  font-size: 1.3rem;
+}
+.btn-sidebar svg {
+  font-size: 1.2rem;
+  margin-top: 3.2px;
 }

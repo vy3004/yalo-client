@@ -29,6 +29,7 @@ export default function UpdateInfoUserModal() {
     <div>
       <Modal
         title="Cập nhật thông tin"
+        centered
         open={isUpdateInfoUserModalOpen}
         onCancel={handleCancel}
         onOk={handleUpdate}

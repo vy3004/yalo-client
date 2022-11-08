@@ -21,6 +21,7 @@ export default function LogoutModal() {
     <div>
       <Modal
         title="Xác nhận"
+        centered
         open={isLogoutModalOpen}
         onCancel={handleCancel}
         onOk={handleLogout}

@@ -100,7 +100,7 @@ export default function ChatViewMessage() {
       uid: "123",
     },
     {
-      text: "Helloooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo",
+      text: "Hellooooooooooooo",
       displayName: "ABC",
       createdAt: "1667058871868",
       photoURL: "",
@@ -165,7 +165,7 @@ export default function ChatViewMessage() {
           ),
         },
         {
-          key: "3-",
+          key: "3-6",
           label: (
             <Button
               style={{ color: "red" }}
@@ -242,32 +242,6 @@ export default function ChatViewMessage() {
         </div>
       </Dropdown>
     </div>
-    // <Dropdown
-    //   key={index}
-    //   className={`${uid === mes.uid ? "m-msg" : "msg"}`}
-    //   overlay={menuMsg}
-    // >
-    //   <div>
-    //     <Message
-    //       key={mes.id}
-    //       text={mes.text}
-    //       photoURL={mes.photoURL}
-    //       displayName={mes.displayName}
-    //       createdAt={mes.createdAt}
-    //       mesUid={mes.uid}
-    //     />
-    //   </div>
-    // </Dropdown>
-    // <div key={index} className={`${uid === mes.uid ? "m-msg" : "msg"}`}>
-    //   <Message
-    //     key={mes.id}
-    //     text={mes.text}
-    //     photoURL={mes.photoURL}
-    //     displayName={mes.displayName}
-    //     createdAt={mes.createdAt}
-    //     mesUid={mes.uid}
-    //   />
-    // </div>
   ));
 
   return <div className="chat-view-message">{renderMess}</div>;
